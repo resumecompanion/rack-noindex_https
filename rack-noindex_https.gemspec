@@ -3,9 +3,9 @@ require File.expand_path('../lib/rack-noindex_https/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Josh Moore"]
-  gem.email         = ["joshsmoore@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.email         = ["josh@resumecompanion.com"]
+  gem.description   = %q{Little rack middleware to insert '<meta name="robots" content="noindex"></head>' into all HTTPS HTML responses for SEO reasons}
+  gem.summary       = %q{Little rack middleware to insert '<meta name="robots" content="noindex"></head>' into all HTTPS HTML responses for SEO reasons}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
