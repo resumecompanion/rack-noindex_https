@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Rack::NoindexHttps::VERSION
   
-  gem.add_dependency 'rack',      '~> 1.2.0'
+  gem.add_dependency 'rack',      '~> 1.4.0'
   gem.add_development_dependency 'rack-test', '~> 0.5.4'
   gem.add_development_dependency 'rspec'
 end
