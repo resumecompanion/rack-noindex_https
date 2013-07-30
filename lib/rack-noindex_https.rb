@@ -7,16 +7,11 @@ module Rack
     end
 
     def call(env)
-      dup._call(env)
-    end
-
-    def _call(env)
       puts "got here"
       @status, @headers, @body = @app.call(env)
       puts env.inspect
-      request = Rack::Request.new(env)
       
-      if request.scheme == 'https' && (@headers['Content-Type'] =~ /application\/html/ || @headers['Content-Type'] =~ /text\/html/)
+      if env['rack.url_scheme'] == 'https' && (@headers['Content-Type'] =~ /application\/html/ || @headers['Content-Type'] =~ /text\/html/)
         @body = @body.collect {|fragement| puts "updating"; fragement.gsub(%r{</head>}, '<meta name="robots" content="noindex"></head>') } 
       end
 
