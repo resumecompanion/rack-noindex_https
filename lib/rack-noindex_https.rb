@@ -14,7 +14,7 @@ module Rack
       @status, @headers, @body = @app.call(env)
       request = Rack::Request.new(env)
       
-      if request.scheme == 'https' && @headers['Content-Type'] == 'application/html'
+      if request.scheme == 'https' && (@headers['Content-Type'] =~ /application\/html/ || @headers['Content-Type'] =~ /text\/html/)
         @body = @body.collect {|fragement| fragement.gsub(%r{</head>}, '<meta name="robots" content="noindex"></head>') } 
       end
 

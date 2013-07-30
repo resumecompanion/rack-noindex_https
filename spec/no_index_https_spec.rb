@@ -7,6 +7,10 @@ module Rack
       get('https://example.org/').body.should == '<html><head>Hello world<meta name="robots" content="noindex"></head><body></body></html>'
     end
 
+    it 'should inject no index tag into head of https HTML request for text/html' do
+      get('https://example.org/text.html').body.should == '<html><head>Hello world<meta name="robots" content="noindex"></head><body></body></html>'
+    end
+
     it 'should not inject no index tag of http HTML request' do
       get('/').body.should == '<html><head>Hello world</head><body></body></html>'
     end

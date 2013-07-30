@@ -10,7 +10,9 @@ def main_app
     request = Rack::Request.new(env)
     case request.path
       when '/' then
-        [200, {'Content-Type' => 'application/html'}, ['<html><head>Hello world</head><body></body></html>']]
+        [200, {'Content-Type' => 'application/html; charset=utf-8'}, ['<html><head>Hello world</head><body></body></html>']]
+      when '/text.html' then
+        [200, {'Content-Type' => ' text/html; charset=utf-8'}, ['<html><head>Hello world</head><body></body></html>']]
       when '/test.xml' then
         [200, {'Content-Type' => 'application/xml'}, ['<head></head><xml></xml>']]
       when '/bob' then
